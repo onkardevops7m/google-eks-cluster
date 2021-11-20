@@ -19,6 +19,7 @@ module "eks" {
   worker_groups = [
     {
       name                          = "worker-group-1"
+      spot_price          	    = "0.0080"
       instance_type                 = "t2.small"
       additional_userdata           = "echo foo bar"
       asg_desired_capacity          = 2
@@ -26,6 +27,7 @@ module "eks" {
     },
     {
       name                          = "worker-group-2"
+      spot_price          	    = "0.0145"
       instance_type                 = "t2.medium"
       additional_userdata           = "echo foo bar"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]

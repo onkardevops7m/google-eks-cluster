@@ -1,3 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "environment-state-devops"
+    key    = "QA/qa-eks-state.tf"
+    region = "us-west-2"
+  }
+}
+
 variable "region" {
   default     = "us-west-2"
   description = "AWS region"
